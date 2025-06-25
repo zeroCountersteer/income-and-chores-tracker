@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Домашний учёт</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🏠 Домашний учёт</h1>
+
+  <section>
+    <h2>💰 Бюджет</h2>
+    <form id="budgetForm">
+      <input type="datetime-local" id="budgetTime" required />
+      <input type="text" id="budgetWho" placeholder="Кто?" required />
+      <select id="budgetType">
+        <option value="income">Доход</option>
+        <option value="expense">Расход</option>
+      </select>
+      <input type="number" id="budgetAmount" placeholder="Сумма" required />
+      <input type="text" id="budgetComment" placeholder="Комментарий (необязательно)" />
+      <button type="submit">Добавить</button>
+    </form>
+    <ul id="budgetList"></ul>
+  </section>
+
+  <section>
+    <h2>🧹 Домашние дела</h2>
+    <form id="choreForm">
+      <input type="datetime-local" id="choreTime" required />
+      <input type="text" id="choreWho" placeholder="Кто?" required />
+      <select id="choreType"></select>
+      <input type="text" id="newChoreType" placeholder="или добавить новое" />
+      <button type="submit">Добавить</button>
+    </form>
+    <ul id="choreList"></ul>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
