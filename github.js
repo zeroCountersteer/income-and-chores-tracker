@@ -4,7 +4,18 @@ async function getFile() {
   const res = await fetch(`https://api.github.com/repos/${CONFIG.GITHUB_REPO}/contents/${CONFIG.GITHUB_FILE_PATH}`, {
     headers: { Authorization: `Bearer ${accessToken}` }
   });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`GitHub API error ${res.status}: ${errorText}`);
+  }
+
   const json = await res.json();
+
+  if (!json.content || !json.sha) {
+    throw new Error('Invalid response: missing content or sha');
+  }
+
   fileSha = json.sha;
   const content = atob(json.content.replace(/\n/g, ''));
   return JSON.parse(content);
