@@ -2,7 +2,7 @@ let fileSha = null;
 
 async function getFile() {
   const res = await fetch(`https://api.github.com/repos/${CONFIG.GITHUB_REPO}/contents/${CONFIG.GITHUB_FILE_PATH}`, {
-    headers: { Authorization: `Bearer ${accessToken}` }
+    headers: { Authorization: `token ${CONFIG.GITHUB_PAT}` }
   });
 
   if (!res.ok) {
