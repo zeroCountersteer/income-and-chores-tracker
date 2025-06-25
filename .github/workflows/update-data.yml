@@ -13,12 +13,13 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config user.name "HomeBudget Bot"
-          git config user.email "home-budget@example.com"
+          git config --global user.name "HomeBudget Bot"
+          git config --global user.email "home-budget@example.com"
 
       - name: Move tmp-data.json to data.json
         run: |
           cp tmp-data.json data.json
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git add data.json
           git commit -m "Sync tmp-data.json → data.json"
           git push
