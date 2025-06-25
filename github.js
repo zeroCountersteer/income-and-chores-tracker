@@ -11,7 +11,7 @@ async function getFile() {
 }
 
 async function saveFile(data) {
-  const content = btoa(JSON.stringify(data, null, 2));
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
   const res = await fetch(`https://api.github.com/repos/${CONFIG.GITHUB_REPO}/contents/${CONFIG.GITHUB_FILE_PATH}`, {
     method: 'PUT',
     headers: {
