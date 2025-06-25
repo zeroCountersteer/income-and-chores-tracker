@@ -1,42 +1,39 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Домашний учёт</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Budget Tracker</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🏠 Домашний учёт</h1>
-
-  <section>
-    <h2>💰 Бюджет</h2>
+  <h1>Home Budget Tracker</h1>
+  <div id="login-area">
+    <button id="login">Login with GitHub</button>
+  </div>
+  <div id="app" style="display: none;">
+    <p id="welcome"></p>
     <form id="budgetForm">
-      <input type="datetime-local" id="budgetTime" required />
-      <input type="text" id="budgetWho" placeholder="Кто?" required />
       <select id="budgetType">
-        <option value="income">Доход</option>
-        <option value="expense">Расход</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
       </select>
-      <input type="number" id="budgetAmount" placeholder="Сумма" required />
-      <input type="text" id="budgetComment" placeholder="Комментарий (необязательно)" />
-      <button type="submit">Добавить</button>
+      <input type="number" id="budgetAmount" placeholder="Amount" required />
+      <input type="text" id="budgetComment" placeholder="Comment" />
+      <button type="submit">Add</button>
+    </form>
+    <form id="choreForm">
+      <select id="choreType"></select>
+      <input type="text" id="newChoreType" placeholder="New chore type" />
+      <button type="submit">Add</button>
     </form>
     <ul id="budgetList"></ul>
-  </section>
-
-  <section>
-    <h2>🧹 Домашние дела</h2>
-    <form id="choreForm">
-      <input type="datetime-local" id="choreTime" required />
-      <input type="text" id="choreWho" placeholder="Кто?" required />
-      <select id="choreType"></select>
-      <input type="text" id="newChoreType" placeholder="или добавить новое" />
-      <button type="submit">Добавить</button>
-    </form>
     <ul id="choreList"></ul>
-  </section>
-
-  <script src="script.js"></script>
+  </div>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
+  <script src="config.js"></script>
+  <script src="auth.js"></script>
+  <script src="github.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
